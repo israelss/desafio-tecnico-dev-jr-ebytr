@@ -1,0 +1,31 @@
+{
+  "name": "desafio-tecnico-dev-jr-ebytr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/israelss/desafio-tecnico-dev-jr-ebytr.git"
+  },
+  "keywords": [
+    "desafio",
+    "tecnico",
+    "ebytr",
+    "node",
+    "express",
+    "mysql",
+    "react",
+    "mocha",
+    "chai",
+    "sinon"
+  ],
+  "author": "Israel Sant'Anna @israelss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/israelss/desafio-tecnico-dev-jr-ebytr/issues"
+  },
+  "homepage": "https://github.com/israelss/desafio-tecnico-dev-jr-ebytr#readme"
+}
