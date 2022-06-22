@@ -4,6 +4,9 @@
     "target": "es2021",
     "lib": ["ES2021"],
 
+    /* Emit */
+    "outDir": "./build",
+
     /* Modules */
     "module": "commonjs",
     "baseUrl": "./src",
