@@ -4,8 +4,11 @@
   "description": "Server for Ebytr Task Manager",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/index.ts",
-    "start": "ts-node src/index.ts",
+    "build": "npx tsc",
+    "predev": "npm run build && npm run lint:fix",
+    "dev": "nodemon --watch src src/server.ts",
+    "prestart": "npm run build && npm run lint",
+    "start": "node build/server.js",
     "lint": "ts-standard",
     "lint:fix": "ts-standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
