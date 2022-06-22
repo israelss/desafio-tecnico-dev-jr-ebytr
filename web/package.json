@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "predev": "npm run lint:fix",
+    "dev": "vite",
+    "prebuild": "npm run lint",
+    "build": "tsc && vite build",
+    "prepreview": "npm run lint:fix",
+    "preview": "vite preview",
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard --fix"
+  },
+  "dependencies": {
+    "@tanstack/react-location": "^3.7.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4",
+    "ts-standard": "^11.0.0",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.9",
+    "vitest": "^0.15.2"
+  }
+}
