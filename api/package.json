@@ -4,6 +4,8 @@
   "description": "Server for Ebytr Task Manager",
   "main": "index.js",
   "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "ts-node src/index.ts",
     "lint": "ts-standard",
     "lint:fix": "ts-standard --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
