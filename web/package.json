@@ -7,6 +7,8 @@
     "dev": "vite",
     "prebuild": "npm run lint",
     "build": "tsc && vite build",
+    "prestart": "npm run build",
+    "start": "vite --host 0.0.0.0",
     "prepreview": "npm run lint:fix",
     "preview": "vite preview",
     "lint": "ts-standard",

@@ -4,10 +4,11 @@
   "description": "Server for Ebytr Task Manager",
   "main": "index.js",
   "scripts": {
+    "db:deploy": "prisma generate && prisma migrate deploy",
     "build": "npx tsc",
     "predev": "npm run build && npm run lint:fix",
     "dev": "nodemon --watch src src/server.ts",
-    "prestart": "npm run build && npm run lint",
+    "prestart": "npm run build && npm run lint && npm run db:deploy",
     "start": "node build/server.js",
     "lint": "ts-standard",
     "lint:fix": "ts-standard --fix",
