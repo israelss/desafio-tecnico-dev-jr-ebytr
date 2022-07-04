@@ -3,7 +3,7 @@ services:
   frontend:
     build:
       context: ./web
-      target: production
+      target: development
     image: ebytr_frontend
     container_name: 'ebytr_frontend'
     depends_on:
@@ -11,12 +11,14 @@ services:
         condition: service_healthy
     ports:
       - "3000:3000"
+    volumes:
+      - ./web/src:/app/src
     healthcheck:
       test: "nc -z localhost 3000"
   backend:
     build:
       context: ./api
-      target: production
+      target: development
     image: ebytr_backend
     container_name: 'ebytr_backend'
     depends_on:
@@ -26,6 +28,8 @@ services:
       - './api/.env'
     ports:
       - "3001:3001"
+    volumes:
+      - ./api/src:/app/src
     healthcheck:
       test: "nc -z localhost 3001"
   db:
@@ -37,6 +41,7 @@ services:
       - "3002:3306"
     volumes:
       - ebytr-data:/var/lib/mysql
+      - ./init_db:/docker-entrypoint-initdb.d
     healthcheck: #found @ https://stackoverflow.com/a/62986398/4089305
       test: out=$$(mysqladmin ping -h localhost -P 3306 -u $${MYSQL_USER} --password=$$(echo $${MYSQL_PASSWORD}) 2>&1); echo $$out | grep 'mysqld is alive' || { echo $$out; exit 1; }
 volumes:
