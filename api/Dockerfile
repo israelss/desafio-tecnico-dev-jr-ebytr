@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS base
+FROM node:20.14.0-alpine3.20 AS base
 WORKDIR /app
 COPY package*.json .
 COPY prisma/ ./prisma/
@@ -8,7 +8,7 @@ RUN npm run clean
 RUN npm run build
 
 
-FROM node:lts-alpine AS development
+FROM node:20.14.0-alpine3.20 AS development
 WORKDIR /app
 COPY --from=base ./app/src ./src
 COPY --from=base ./app/prisma ./prisma
@@ -19,7 +19,7 @@ CMD [ "npm", "run", "dev" ]
 EXPOSE 3001
 
 
-FROM node:lts-alpine AS production
+FROM node:20.14.0-alpine3.20 AS production
 WORKDIR /app
 COPY --from=base ./app/build ./build
 COPY --from=base ./app/prisma ./prisma
