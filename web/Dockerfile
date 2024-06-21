@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS base
+FROM node:20.14.0-alpine3.20 AS base
 WORKDIR /app
 COPY package*.json .
 RUN npm install
@@ -6,7 +6,7 @@ COPY . .
 RUN npm run clean
 RUN npm run build
 
-FROM node:lts-alpine AS development
+FROM node:20.14.0-alpine3.20 AS development
 ENV NODE_ENV=development
 WORKDIR /app
 COPY --from=base ./app/src ./src
@@ -18,7 +18,7 @@ RUN npm install
 CMD [ "npm", "run", "dev" ]
 EXPOSE 3000
 
-FROM node:lts-alpine AS production
+FROM node:20.14.0-alpine3.20 AS production
 ENV NODE_ENV=production
 WORKDIR /app
 COPY --from=base ./app/dist ./dist
